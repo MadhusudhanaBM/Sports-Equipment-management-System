@@ -1,0 +1,13 @@
+<html>
+    <body>
+        <p>Thanks for register, your details</p>
+        <table border="1">
+            <tr>
+                {% for key,value in result.items():%}
+                      <th style="color: seagreen;">{{key}}</th>
+                      <td><pre>{{value}}</pre></td>                
+            </tr>
+                {% endfor %}
+        </table>
+    </body>
+</html>

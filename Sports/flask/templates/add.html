@@ -1,0 +1,85 @@
+<html>
+
+    <body style="display: flex;justify-content: left;background-color: lightcyan;align-items: center; background-image:url('/static/ggflash.jpg');background-repeat:no-repeat;background-size:cover;">
+       
+            <table border="0" style="font-weight: bold;height: 59%; width: 25%;font-size: 120%;color: red;">
+                <tr><td>MAIN MENU</td></tr>
+                <tr><td><a href="http://localhost:5000/home">Home</a></td></tr>
+                <tr><td><a href="http://localhost:5000/add">Add New Details</a></td></tr>
+                <tr><td><a href="http://localhost:5000/find">Find Details</a></td></tr>
+                <tr><td><a href="http://localhost:5000/delete">Delete Details</a></td></tr>
+                <tr><td><a href="http://localhost:5000/update">Update Details</a></td></tr>
+                <tr><td><a href="http://localhost:5000/record">View Record</a></td></tr>
+                
+            </table>
+   
+         
+        <form action=http://localhost:5000/add method=POST>
+            <h1>ADD NEW DETAILS</h1>
+            
+    
+            <table border="0" style="font-weight: bold;height: 59%; width: 150%;font-size: 150%;color: red;">
+                <tr>
+                    <td>Faculty/Student Id</td>
+                    <td><input type=text name=s_usn></td>
+                </tr>
+                <tr>
+                    <td>Person Name</td>
+                    <td><input type=text name=s_name></td>
+                </tr>
+                <tr>
+                    <td> Select Equipment </td>
+                    <td><select name=s_equipment>
+                        
+                        <option name=season>Football</option>
+                        <option name=season>Basekat ball</option>
+                        <option name=season>Cricket Equipment</option>
+                        <option name=season>Throw Ball</option>
+                        <option name=season>Chess Borad Equipment</option>
+                        <option name=season>Carrom Board Equipment</option>
+                        <option name=season>Table Tennis Equipment</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quantity</td>
+                    <td><input type="number" name=s_quantity ></td>
+                </tr>
+                <tr>
+                    <td>Department</td>
+                    <td><select name=s_department>
+                        
+                        <option name=season>CSE</option>
+                        <option name=season>ISE</option>
+                        <option name=season>ECE</option>
+                        <option name=season>MECH</option>
+                        <option name=season>CIVIL</option>
+                        <option name=season>EEE</option>
+                        <option name=season>CIVIL</option>
+                        <option name=season>DEPLOMA</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date of Taken </td>
+                    <td><input type="Date" name=s_taken></td>
+                </tr>
+                <tr>
+                    <td>Date of Return</td>
+                    <td><input type="Date" name=s_return></td>
+                </tr>
+                 <tr>
+                    <td>Cost of Rent</td>
+                    <td><input type=text name=s_costrent></td>
+                </tr>
+                
+
+            </table>
+            <p><input type="submit" value=add></p>
+             
+        </form>
+
+    </body>
+    
+</html>
+

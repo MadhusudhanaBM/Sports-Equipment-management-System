@@ -1,0 +1,104 @@
+<html>
+<script>
+    function exportData() {
+        var table = document.getElementById("record");
+        var rows = [];
+
+        for (var i = 0, row; row = table.rows[i]; i++) {
+            column1 = row.cells[0].innerText;
+            column2 = row.cells[1].innerText;
+            column3 = row.cells[2].innerText;
+            column4 = row.cells[3].innerText;
+            column5 = row.cells[4].innerText;
+            column6 = row.cells[5].innerText;
+            column7 = row.cells[6].innerText;
+            column8 = row.cells[7].innerText;
+            rows.push(
+                [
+                    column1,
+                    column2,
+                    column3,
+                    column4,
+                    column5,
+                    column6,
+                    column7,
+                    column8
+                ]
+            );
+
+        }
+        csvContent = "data:text/csv;charset=utf-8,";
+        rows.forEach(function (rowArray) {
+            row = rowArray.join(",");
+            csvContent += row + "\r\n";
+        });
+
+        var encodedUri = encodeURI(csvContent);
+        var link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "records.csv");
+        document.body.appendChild(link);
+        link.click();
+    }
+</script>
+    <body style="display: flex;justify-content: left;background-color: lightcyan;align-items: center; background-image:url('/static/ggflash.jpg');background-repeat:no-repeat;background-size:cover;">
+       
+            <table border="0" style="font-weight: bold;height: 59%; width: 25%;font-size: 120%;color: red;">
+                <tr><td>MAIN MENU</td></tr>
+                <tr><td><a href="http://localhost:5000/home">Home</a></td></tr>
+                <tr><td><a href="http://localhost:5000/add">Add New Details</a></td></tr>
+                <tr><td><a href="http://localhost:5000/find">Find Details</a></td></tr>
+                <tr><td><a href="http://localhost:5000/delete">Delete Details</a></td></tr>
+                <tr><td><a href="http://localhost:5000/update">Update Details</a></td></tr>
+                <tr><td><a href="http://localhost:5000/record">View Record</a></td></tr>
+            </table>
+    </body>
+     {% if r == 0 %}
+    <body style="display: flex;justify-content: center;background-color: lightcyan;align-items: center;">
+        <form action=http://localhost:5000/record method=POST>
+            <h1>VIEW RECORD DETAILS</h1>
+            <table border="0" style="font-weight: bold;height: 15%; width: 150%;font-size: 150%;color: red;">
+                <tr>
+                    <td>View Record</td>
+                    <td><input type="Date" name=s_taken></td>
+                    
+                </tr>
+                
+                
+            </table>
+           <p><input type=submit value=SEARCH></p>
+           <p><a href="http://localhost:5000/recordall" class="btn btn-light">FIND ALL</a></P>
+         
+        </form>
+        
+    </body>
+    
+     {% elif r == 300 %}
+    <body>
+        <h2 style="color:red">{{error}}</h2>
+    </body>
+    {% else %}
+    <table id="record" border=1 style="background-color:white">
+    <tr>
+    <th>Faculty/Student ID</th>
+    <th>Person Name</th>
+    <th>Department</th>
+    <th>Equipment</th>
+    <th>Quanatity</th>
+    <th>Date of Taken </th>
+    <th>Date of Return</th>
+    <th>Cost of Rent</th></tr>
+    {% for x in result %}
+            <tr><td>{{x['s_usn']}}</td>
+            <td>{{x['s_name']}}</td>
+            <td>{{x['s_department']}}</td>
+            <td>{{x['s_equipment']}}</td>
+            <td>{{x['s_quantity']}}</td>
+            <td>{{x['s_taken']}}</td>
+            <td>{{x['s_return']}}</td>
+            <td>{{x['s_costrent']}}</td></tr>
+        {% endfor %}
+        <button onclick="exportData()" class="btn btn-info" >DOWNLOAD</button>
+        {% endif %}
+        
+</html>

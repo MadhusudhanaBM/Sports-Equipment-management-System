@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>
+            table of {{n}}
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='s.css') }}"> 
+    </head>
+    <body>
+        {% for i in range(1,11):%}
+            <h4 style="color: saddlebrown;">{{n}} x {{i}} = {{n*i}}</h4>
+        {% endfor %}
+    </body>
+</html>
